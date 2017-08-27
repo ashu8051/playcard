@@ -2,7 +2,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ page session="false" %>
-<h3>Tutorial Name</h3>
+<h1>Tutorial Name</h1>
 <c:if test="${!empty tutorialList}">
 	<table  class=showtbl1>
 	<colgroup>
