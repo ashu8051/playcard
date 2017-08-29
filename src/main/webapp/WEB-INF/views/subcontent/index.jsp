@@ -2,11 +2,8 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ page session="false" %>
-
-
-
-
-<h3></h3>
+<h3><span><a href="<c:url value="/subcontent/add" />">
+			Add SubContent<%-- <img src="<c:url value="/static/images/create.png" />" width="20" height="20" alt=""> --%></a></span></h3>
 <c:if test="${!empty subContentList}">
 	
 	<table  class=showtbl1>
@@ -38,13 +35,14 @@
 			<%-- <td><a href="<c:url value="/topiccontent/contentDelete?contentId=${topicContent.id}&topicId=${topicContent.topic.id}" />"/>
 			Delete</td> --%>
 			<td>
-			<a href="<c:url value="/topiccontent/add" />"/>
-			Add Content</td>
-			<td>
+			<table><tr>
+				<td>
 			<a href="<c:url value="/subcontent/update?subContentId=${subContent.id}" />"/>
-			Update SubContent</td>
-			
-			
+			<img src="<c:url value="/static/images/detail.png" />" width="20" height="20" alt=""></td>
+			<td>
+			</td>
+			</tr></table>
+			</td>
 		</tr>
 	</c:forEach>
 	 </tbody>

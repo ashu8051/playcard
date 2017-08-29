@@ -42,7 +42,33 @@
          <div class="wrap">
         <div class="header"><tiles:insertAttribute name="header" />
         </div>
-        <div class="intern"><tiles:insertAttribute name="body" />
+        <div class="intern">
+       
+       
+        
+        <table  class="showidiv">
+        <tbody>
+        <tr>
+        <td>
+         <div  class="showidiv1">
+        <tiles:insertAttribute name="menu" />
+        </div>
+        </td>
+        
+        <td>
+         <div  class="showidiv2">
+        <tiles:insertAttribute name="body" />
+        </div>
+        </td>
+        <td>
+         <div  class="showidiv3">
+         <tiles:insertAttribute name="ads" />
+        </div>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+        
         </div>
         <!-- <div class="push"></div> -->
     </div>

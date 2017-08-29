@@ -4,6 +4,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="now" value="<%= new java.util.Date() %>" />
 
+<div class="flt">
+<h1 style="color: red;font-style:inherit ;font-size: 30px;">makemytutorial.com</h1>
+</div>
 <div class="flt" >
 	<c:url value="/logout" var="logoutUrl" />
 
@@ -26,9 +29,9 @@
 <div class="frt">
                 <div style="width: 100%; text-align: right; float: right;">
                     <div class="headersec">
-                        <div class="tr pt3">Welcome : ${pageContext.request.userPrincipal.name} | <a
+                        <div class="tr pt3 logout">Welcome : ${pageContext.request.userPrincipal.name} | <a
 				href="javascript:formSubmit()"> Logout</a></div>
-                        <div class="tr pt7"><fmt:formatDate value="${now}" type="both" dateStyle="full" timeStyle="full" /></div>
+                        <div class="tr pt7 timeinfo"><fmt:formatDate value="${now}" type="both" dateStyle="full" timeStyle="full" /></div>
                     </div>
                     <div id="navbar" style="height: 24px;">
                         <ul>

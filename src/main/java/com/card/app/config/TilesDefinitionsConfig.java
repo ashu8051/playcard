@@ -31,6 +31,7 @@ public final class TilesDefinitionsConfig implements DefinitionsFactory {
         attributes.put("header", new Attribute("/WEB-INF/views/tiles/template/defaultHeader.jsp"));
         attributes.put("menu", new Attribute("/WEB-INF/views/tiles/template/defaultMenu.jsp"));
         attributes.put("body", new Attribute(body));
+        attributes.put("ads", new Attribute("/WEB-INF/views/tiles/template/ads.jsp"));
         attributes.put("footer", new Attribute("/WEB-INF/views/tiles/template/defaultFooter.jsp"));
 
         tilesDefinitions.put(name, new Definition(name, BASE_TEMPLATE, attributes));

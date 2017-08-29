@@ -8,7 +8,7 @@
 }
 
 body {
-    background: #FFFFFF;
+    background: #800040;
     display: block;
     font-size: 12px;
     line-height: 1;
@@ -64,17 +64,17 @@ h3 {
 .text { font-size:1.25em; line-height:1.25em; text-align:justify; }
 
 a {
-    color: #06C;
-    font-size: 0.9em;
+    color: red;
+    font-size: 20px;
     text-decoration: none;
 }
 
 a:active,a:visited {
-    color: #06C;
+    color: green;
 }
 
 a:hover {
-    color: #0080FF;
+    color: gray;
     text-decoration: none;
 }
 
@@ -99,7 +99,7 @@ a:hover {
 }
 
 .header {
-    background: #FFFFFF;
+    background: #ffe6f2;
     border-bottom: 1px solid #22B7E6;
     height: 75px;
     padding: 0px 10px;
@@ -121,6 +121,7 @@ a:hover {
 
 .intern {
     overflow:auto;
+    position:relative;
     padding-bottom: 50px;
 }
 
@@ -227,7 +228,7 @@ a:hover {
 }
 .lbl03 {
     color: #0088CC;
-    font-size: 0.9em;
+    font-size: 30px;
 }
 .lbl04 {
     color: #0088CC; font-size: 1.6em; font-weight: bold; padding: 5px 0px;
@@ -452,7 +453,7 @@ a:hover {
   border-radius: 0 3px 3px 0;
 }
 
-.showtblbox {
+/* .showtblbox {
     margin: 0 auto;
     width: 960px;
 } 
@@ -465,11 +466,37 @@ a:hover {
     margin-top: 10px;
     width: 500px;
     height: 400px;
-} 
+}  */
+
+.showidiv {
+	width: 100% ; height:auto;
+}
+
+
+.showidiv td {
+    border: 0px solid #F1F1F1; 
+    padding: 0px;
+}
+.showidiv td {
+    border: 0px solid #F1F1F1;
+    padding: 0px;
+}
+
+.showidiv1 {
+	 width: 280px;height: auto;
+}
+
+.showidiv2 {
+	 width: 900px; height: auto;
+}
+
+.showidiv3 {
+	 width: 186px;height: auto;
+}
 .showtbl {
     width: 900px; margin: 0 auto;
 }
-.showtblboxImg {
+/* .showtblboxImg {
 	
     width: 900px; margin: 0 auto;
     margin-left: 0;
@@ -482,7 +509,7 @@ a:hover {
     margin-left: 0;
     margin-right: 0;
     
-}
+} */
 .showtbl td {
     border: 0px solid #F1F1F1;
     padding: 5px;
@@ -494,10 +521,10 @@ a:hover {
     padding-right: 5px;
     vertical-align: middle;
 }
-.showtbl tbody td:first-child:after {
+/* .showtbl tbody td:first-child:after {
     content: " : ";
     font-weight: bold;
-}
+} */
 
 .showtbldiv {
     float: left; text-align: center; width: 20%;
@@ -525,7 +552,7 @@ a:hover {
 }
 
 .showtbl1 td:first-child {
-    color: #0088CC;
+    color: teal;
     text-align: left;
     padding-right: 5px;
     vertical-align: middle;
@@ -614,3 +641,19 @@ a:hover {
 .ui-timepicker-div dl dt { height: 25px; }
 .ui-timepicker-div dl dd { margin: -25px 0 10px 65px; }
 .ui-timepicker-div td { font-size: 90%; }
+
+
+
+.logout {
+	font-size: 15px;
+	color: gray;
+}
+
+.logout a{
+	color: red;
+}
+
+.timeinfo {
+	color: gray;
+}
+

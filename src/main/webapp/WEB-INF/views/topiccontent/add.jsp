@@ -139,7 +139,7 @@ $('#topicContent').submit(function() {
 </script>
 
 <h1>
-	Add a TopicContent
+	Add  Content
 </h1>
 
 <c:url var="addAction" value="/topiccontent/add" ></c:url>
@@ -161,15 +161,19 @@ $('#topicContent').submit(function() {
 			</form:label>
 		</td>
 		<td>
-		 <form:select id="tutorialId"  name="tutorialId" path="tutorial.id" class="selform">
-		                                  <option value=""> --Select--</option>
+		<table>
+		<tr>
+		<td> <form:select id="tutorialId"  name="tutorialId" path="tutorial.id" class="selform">
                                         <c:forEach items="${tutorialList}" var="tutorial">
                                             <option value="${tutorial.id }"> ${tutorial.tutorialName}</option>
                                         </c:forEach>
-                                        </form:select>
+                                        </form:select></td>
+		<td><a href="<c:url value="/tutorial/add" />">
+			<img src="<c:url value="/static/images/create.png" />" width="20" height="20" alt=""></a></td>
+		</tr>
+		</table>
 			
 		</td> 
-		<td><a href="<c:url value="/tutorial/add" />"/>Add Tutorial</td>
 	</tr>
 	
 	<tr>
@@ -179,16 +183,19 @@ $('#topicContent').submit(function() {
 			</form:label>
 		</td>
 		<td>
-		<form:select id="topicId" name="topicId"  path="topic.id" class="selform" >
-		                                <option value=""> --Select--</option>
+		<table>
+		<tr>
+		<td><form:select id="topicId" name="topicId"  path="topic.id" class="selform" >
                                         <c:forEach items="${topicList}" var="topic">
                                             <option value="${topic.id }"> ${topic.topic}</option>
                                         </c:forEach>
-                                        </form:select>
-                                        <c:set var="topicId" value="${topic.id }" scope="request"/>
+                                        </form:select></td>
+		<td><a href="<c:url value="/topic/add" />">
+			<img src="<c:url value="/static/images/create.png" />" width="20" height="20" alt=""></a></td>
+		</tr>
+		</table>
 			
 		</td> 
-		<td><a href="<c:url value="/topic/add" />"/>Add Topic</td>
 	</tr>
 	
 	<tr>
@@ -198,16 +205,22 @@ $('#topicContent').submit(function() {
 			</form:label>
 		</td>
 		<td>
-		<form:select id="subContentId" name="subContentId"  path="subContent.id" class="selform" >
+		<table>
+		<tr>
+		<td><form:select id="subContentId" name="subContentId"  path="subContent.id" class="selform" >
 		                                  <option value=""> --Select--</option>
                                         <c:forEach items="${subContentList}" var="subtopic">
                                             <option value="${subtopic.id }"> ${subtopic.subContent}</option>
                                         </c:forEach>
-                                        </form:select>
+                                        </form:select></td>
+		<td><a href="<c:url value="/subcontent/add" />">
+			<img src="<c:url value="/static/images/create.png" />" width="20" height="20" alt=""></a></td>
+		</tr>
+		</table>
+		
                                       
 			
 		</td> 
-		<td><a href="<c:url value="/subcontent/add" />"/>Add SubTopic</td>
 	</tr>
 	
 	<tr>

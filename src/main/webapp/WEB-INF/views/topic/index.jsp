@@ -2,7 +2,8 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ page session="false" %>
-<h3></h3>
+<h3><span><a href="<c:url value="/topic/add" />">
+			Add Topic<%-- <img src="<c:url value="/static/images/create.png" />" width="20" height="20" alt=""> --%></a></span></h3>
 <c:if test="${!empty topicList}">
 
 <table  class=showtbl1>
@@ -25,12 +26,14 @@
 			${topic.topic}</td> --%>
 			<td><a href="<c:url value="/subcontent/subcontentlistbyid?topicId=${topic.id}" />"/>
 			${topic.topic}</td>
-			<td>
+			<td><table><tr>
+				<td>
 			<a href="<c:url value="/topic/update?topicId=${topic.id}" />"/>
-			Update Topic</td>
+			<img src="<c:url value="/static/images/detail.png" />" width="20" height="20" alt=""></td>
 			<td>
-			<a href="<c:url value="/subcontent/add" />"/>
-			Add SubContent</td>
+			</td>
+			</tr></table></td>
+		
 			
 			
 		</tr>

@@ -60,11 +60,20 @@ $(document).ready(function(e) {
 			</form:label>
 		</td>
 		<td>
+		<table><tr>
+		<td>
 		 <select id="tutorialId" name="tutorial.id" class="selform">
                                         <c:forEach items="${tutorialList}" var="tutorial">
                                             <option value="${tutorial.id }"> ${tutorial.tutorialName}</option>
                                         </c:forEach>
                                         </select>
+		</td>
+		<td>
+		<a href="<c:url value="/tutorial/add" />">
+			<img src="<c:url value="/static/images/create.png" />" width="20" height="20" alt=""></a>
+		</td>
+		</tr></table>
+		
 			
 		</td> 
 	</tr>
