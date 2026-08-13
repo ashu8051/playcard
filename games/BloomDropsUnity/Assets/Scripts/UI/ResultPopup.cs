@@ -16,9 +16,27 @@ namespace BloomDrops.UI
 
         void Awake()
         {
-            if (continueButton != null)
-                continueButton.onClick.AddListener(() => OnContinue?.Invoke());
             Hide();
+        }
+
+        void OnEnable()
+        {
+            if (continueButton != null)
+            {
+                continueButton.onClick.RemoveListener(HandleContinueClicked);
+                continueButton.onClick.AddListener(HandleContinueClicked);
+            }
+        }
+
+        void OnDisable()
+        {
+            if (continueButton != null)
+                continueButton.onClick.RemoveListener(HandleContinueClicked);
+        }
+
+        void HandleContinueClicked()
+        {
+            OnContinue?.Invoke();
         }
 
         public void Show(string title, string body, string button)
@@ -27,6 +45,11 @@ namespace BloomDrops.UI
             if (titleText) titleText.text = title;
             if (bodyText) bodyText.text = body;
             if (buttonLabel) buttonLabel.text = button;
+            if (continueButton != null)
+            {
+                continueButton.onClick.RemoveListener(HandleContinueClicked);
+                continueButton.onClick.AddListener(HandleContinueClicked);
+            }
         }
 
         public void Hide()

@@ -85,6 +85,7 @@ namespace BloomDrops.Core
         {
             var def = catalog.Get(id);
             var drop = Instantiate(dropPrefab, boardRoot);
+            drop.gameObject.SetActive(true);
             drop.Setup(id, def.sprite, Color.white, row, col);
             drop.transform.position = CellToWorld(row, col) + (instant ? Vector3.zero : Vector3.up * (_size + 2) * cellSize);
             _grid[row, col] = drop;
