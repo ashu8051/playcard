@@ -1,60 +1,34 @@
-# Bloom Drops (Unity)
+# Bloom Drops — Unity Game
 
-Unity 2D remake of **Two Dots**, remixed as a twilight botanical puzzle (**Bloom Drops**).
+Two Dots–style puzzle in Unity 2D. Theme: twilight botanical **Bloom Drops**.
 
-## Requirements
+## Play (2 steps)
 
-- Unity **2022.3 LTS** (or newer 2D-capable editor)
-- Open the folder `games/BloomDropsUnity` in Unity Hub
+1. **Unity Hub → Open** folder: `games/BloomDropsUnity` (Unity **2022.3 LTS**)
+2. Open scene `Assets/Scenes/BloomDrops` and press **Play**
 
-## Setup (first open)
+The game **auto-builds at runtime** (board, UI, levels, art). No manual wiring required.
 
-1. Open `games/BloomDropsUnity` in Unity Hub
-2. Wait for package import
-3. Menu: **Bloom Drops → Setup Project And Scene**
-4. Press **Play**
+Optional polish menu: **Bloom Drops → Setup Project And Scene** (creates prefabs/ScriptableObjects).
 
-That menu will:
-- Mark drop/UI PNGs as Sprites
-- Create `EssenceCatalog` + `LevelPack` ScriptableObjects
-- Build `Drop` / `GoalChip` prefabs
-- Create playable `Assets/Scenes/BloomDrops.unity`
+## Controls
 
-## How to play
+- Drag matching adjacent drops
+- Release to clear
+- Close a loop / 2×2 square → **Bloom Burst** (clears that whole color)
+- Beat goals before moves run out
 
-- Drag across adjacent drops of the **same color**
-- Release to clear the chain
-- Close a **loop / 2×2 square** for a **Bloom Burst** (clears all of that color)
-- Finish goal counts before moves run out
+## Build mobile
 
-## Project layout
+`File → Build Settings` → Android or iOS  
+Product id: `com.playcard.bloomdrops` · Portrait
+
+## Folder
 
 ```
-Assets/
-  Art/Drops/          essence sprites
-  Art/UI/             icon + background
-  Editor/             one-click setup
-  Scripts/Core/       board, input, game manager
-  Scripts/Data/       ScriptableObject types
-  Scripts/UI/         HUD + popup
-  Scenes/             created by setup menu
-  Prefabs/            created by setup menu
-  Resources/          catalog + levels
+games/BloomDropsUnity/
+  Assets/Scenes/BloomDrops.unity   ← open this
+  Assets/Scripts/                  ← C# gameplay
+  Assets/Resources/                ← sprites loaded at runtime
+  Assets/Art/                      ← source art
 ```
-
-## AI art / concept (optional)
-
-From the web prototype scripts (same keys):
-
-```bash
-# in games/bloom-drops
-export OPENAI_API_KEY=...
-export OPENART_API_KEY=...
-node scripts/remix-concept.mjs
-node scripts/generate-art.mjs
-# copy new PNGs into Assets/Art/ then re-run Setup
-```
-
-## Platforms
-
-Configured product id: `com.playcard.bloomdrops` (Android / iOS / Standalone). Portrait recommended.
