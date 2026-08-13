@@ -137,18 +137,29 @@
   }
 
   function hitCell(x, y) {
-    const c = Math.floor((x - pad) / cell);
-    const r = Math.floor((y - pad) / cell);
-    if (r < 0 || c < 0 || r >= size || c >= size) return null;
-    return { r, c };
+    let best = null;
+    let bestDist = Infinity;
+    const maxDist = cell * 0.55;
+    for (let r = 0; r < size; r++) {
+      for (let c = 0; c < size; c++) {
+        if (!grid[r][c]) continue;
+        const p = cellCenter(r, c);
+        const d = Math.hypot(x - p.x, y - p.y);
+        if (d < bestDist && d <= maxDist) {
+          bestDist = d;
+          best = { r, c };
+        }
+      }
+    }
+    return best;
   }
 
   function getXY(e) {
     const rect = canvas.getBoundingClientRect();
-    const src = e.touches ? e.touches[0] || e.changedTouches[0] : e;
+    const src = e.touches && e.touches[0] ? e.touches[0] : e.changedTouches && e.changedTouches[0] ? e.changedTouches[0] : e;
     return {
-      x: ((src.clientX - rect.left) / rect.width) * canvas.clientWidth,
-      y: ((src.clientY - rect.top) / rect.height) * canvas.clientHeight,
+      x: src.clientX - rect.left,
+      y: src.clientY - rect.top,
     };
   }
 
@@ -550,12 +561,25 @@
     }
   });
 
-  canvas.addEventListener("mousedown", onDown);
-  window.addEventListener("mousemove", onMove);
-  window.addEventListener("mouseup", onUp);
-  canvas.addEventListener("touchstart", onDown, { passive: false });
-  canvas.addEventListener("touchmove", onMove, { passive: false });
-  canvas.addEventListener("touchend", onUp, { passive: false });
+  canvas.style.touchAction = "none";
+  if (window.PointerEvent) {
+    canvas.addEventListener("pointerdown", (e) => {
+      try {
+        canvas.setPointerCapture(e.pointerId);
+      } catch (_) {}
+      onDown(e);
+    });
+    canvas.addEventListener("pointermove", onMove);
+    canvas.addEventListener("pointerup", onUp);
+    canvas.addEventListener("pointercancel", onUp);
+  } else {
+    canvas.addEventListener("mousedown", onDown);
+    window.addEventListener("mousemove", onMove);
+    window.addEventListener("mouseup", onUp);
+    canvas.addEventListener("touchstart", onDown, { passive: false });
+    canvas.addEventListener("touchmove", onMove, { passive: false });
+    canvas.addEventListener("touchend", onUp, { passive: false });
+  }
   window.addEventListener("resize", resize);
 
   // ambient particle shimmer loop
